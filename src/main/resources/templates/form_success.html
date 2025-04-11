@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation Success</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #eef; padding: 50px; text-align: center; }
+        .box { background: white; padding: 30px; border-radius: 10px; display: inline-block; }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>Reservation Submitted Successfully</h2>
+    <p th:text="'Thank you, ' + ${firstName} + '!'"></p>
+    <a href="/form">Submit Another</a>
+</div>
+</body>
+</html>

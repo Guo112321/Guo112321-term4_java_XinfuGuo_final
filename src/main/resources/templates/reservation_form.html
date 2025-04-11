@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fill Your Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f0f0f0;
+        }
+        form {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Fill Your Details</h2>
+
+<form th:action="@{/form}" th:object="${reservation}" method="post">
+    <label>First Name</label>
+    <input type="text" th:field="*{firstName}" required />
+
+    <label>Last Name</label>
+    <input type="text" th:field="*{lastName}" required />
+
+    <label>No. of Passengers</label>
+    <input type="number" th:field="*{passengerCount}" min="1" required />
+
+    <label>Select Your Class</label>
+    <select th:field="*{travelClass}" required>
+        <option value="Economy">Economy</option>
+        <option value="Business">Business</option>
+        <option value="First">First</option>
+    </select>
+
+    <label>Phone Number</label>
+    <input type="text" th:field="*{phoneNumber}" required />
+
+    <label>Time</label>
+    <input type="time" th:field="*{time}" required />
+
+    <label>Date of Departing</label>
+    <input type="date" th:field="*{departureDate}" required />
+
+    <button type="submit">Next</button>
+</form>
+
+</body>
+</html>
